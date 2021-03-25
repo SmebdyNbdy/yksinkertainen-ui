@@ -1,0 +1,15 @@
+{
+  "name": "Yksinkertainen",
+  "theme": "ui",
+  "version": "0.0.1",
+  "description": "Yksinkertainen käyttöliittymä atomiteema",
+  "keywords": [
+    "ui",
+    "theme"
+  ],
+  "repository": "https://github.com/SmebdyNbdy/yksinkertainen-ui",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  }
+}
