@@ -1,4 +1,3 @@
-
 // Base
 // -------------------
 
@@ -14,9 +13,47 @@ body {
   background-color: @app-background-color;
 }
 
-atom-pane {
-  border-right: 1px solid @base-border-color;
-  &:last-child {
-    border-right: none;
-  }
+atom-panel-container {
+
+}
+
+.gutter .line-number {
+    //border-left: 2px solid @base-border-color;
+}
+
+.gutter-container {
+    width: 64px !important;
+    //border-right: 1px solid @base-border-color;
+}
+
+.vertical .panes atom-pane.pane {
+    margin: 0 10px;
+    & > div,item-views {
+        //box-shadow: 1px -1px 0px 0px #ffffff, 1px 1px 0px 0px #ffffff;
+    }
+}
+
+atom-workspace {
+    background-color: @app-background-color;
+}
+
+atom-workspace-axis.vertical {
+
+    & atom-text-editor {
+        margin-top: 0;
+        border-top: none;
+        border-bottom: none;
+        background-color: @app-background-color;
+        z-index: 0;
+    }
+
+    &>.panes .tab-bar {
+        margin-left: 64px;
+        padding-left: 0 !important;
+    }
+}
+
+.settings-view .package-card {
+    background: none;
+    border-radius: @brd;
 }

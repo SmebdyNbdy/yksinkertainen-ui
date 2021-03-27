@@ -5,23 +5,178 @@
 // Overrides: atom/static/panels.less
 
 .panel-heading {
-  border-bottom: 1px solid @panel-heading-border-color;
   background-color: @panel-heading-background-color;
 }
 
 .inset-panel {
-  background-color: @inset-panel-background-color;
+  background-color: lighten(@inset-panel-background-color, 50%);
   .panel-heading {
-    background-color: lighten(@inset-panel-background-color, 4%);
+    background-color: @inset-panel-background-color;
   }
 }
 
+atom-dock .atom-dock-toggle-button-inner {
+    //height: 100% !important;
+    //width: 50px !important;
+    border: none !important;
+    &.left, &.right, &.bottom {
+        transform: none !important;
+        & .icon {
+            opacity: 1 !important;
+        }
+    }
+    &.bottom {
+        width: 50px !important;
+        height: 25px !important;
+    }
+    &.left, &.right {
+        width: 25px !important;
+        height: 50px !important;
+    }
+    position: static !important;
+    left: -25px;
+}
+
+atom-dock, atom-panel-container {
+    &.bottom, &.bottom > * {
+        z-index: 10 !important;
+    }
+    &.right, &.right > * {
+        z-index: 14 !important;
+    }
+    &.left, &.left > * {
+        z-index: 15 !important;
+    }
+}
+
+atom-panel-container.footer {
+    z-index: 17 !important;
+    box-shadow: none;
+    margin-top: 0;
+}
+
+.left, .right {
+    .atom-dock-resize-handle {
+        width: 1px !important;
+        background-color: @base-border-color;
+    }
+}
+
+.bottom {
+    .atom-dock-resize-handle {
+        height: 1px !important;
+        background-color: @base-border-color;
+    }
+}
+
+.atom-dock-inner {
+    z-index: 80;
+    border-radius: @brd;
+    //border-radius: 0px;
+    border: 1px solid @base-border-color;
+    overflow: hidden;
+    //box-shadow: 0px 0px 16px 2px #0000007f;
+    &.left {
+        padding-left: 25px;
+        margin-left: -25px;
+        z-index: 15 !important;
+        border-bottom: none;
+    }
+    &.right {
+        flex-direction: row-reverse;
+        padding-right: 25px;
+        margin-right: -25px;
+        z-index: 14 !important;
+        border-bottom: none
+    }
+    &.bottom {
+        flex-direction: column-reverse;
+        padding-bottom: 50px;
+        margin-bottom: -50px;
+        //box-shadow: none;
+        //border: 1px solid @tab-border-color;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding-left: 0px;
+        z-index: 10 !important;
+    }
+    &:not(.atom-dock-open) {
+        position: sticky;
+        //width: 50px !important;
+    }
+    & .atom-dock-toggle-button-inner .icon {
+        transform: none !important;
+    }
+}
+
+atom-dock div.atom-dock-toggle-button {
+    //height: 75vh !important;
+    //width: 25px !important;
+    &.right {
+        right: 25px !important;
+    }
+    &.left {
+        left: -25px !important;
+    }
+    &.left, &.right {
+        transform: none !important;
+        width: 25px !important;
+    }
+    &.bottom {
+        transform: none !important;
+        pointer-events: auto !important;
+    }
+
+    position: sticky !important;
+
+}
+
+atom-dock .atom-dock-toggle-button-inner.bottom {
+    //width: 100% !important;
+    //height: 50px !important;
+}
+
+atom-dock .atom-dock-toggle-button.bottom {
+    //width: 75vh !important;
+    //height: 25px !important;
+}
 
 // Modal -------------------
 // Used on top of the editor, like the Command Palette.
-
 atom-panel.modal {
-  border: 1px solid @overlay-border-color;
-  border-top: none;
-  box-shadow: 0 2px 8px 1px hsla(0,0%,0%,.3);
+
+  border-radius: 20px;
+  //border-radius: 0px;
+  box-shadow: 0px 0px 16px 2px #0000007f;
+}
+
+atom-dock.right, atom-dock.left {
+
+}
+
+.atom-dock-resize-handle {
+
+}
+
+.overlay.from-top {
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: 50px;
+}
+
+.overlay.from-top {
+    & ol.list-group li.selected {
+        background: none;
+        color: @background-color-success;
+        & .character-match {
+            color: @background-color-success;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+    }
+    & atom-text-editor {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    border: 1px solid @base-border-color;
 }

@@ -4,10 +4,22 @@
 
 // Overrides: atom/atom/static/buttons.less
 
+.input-select, select.form-control {
+    -webkit-appearance: none;
+    padding: 4px;
+}
 
 .btn {
+    height: 100%;
+    padding: 5px 10px !important;
+    line-height: normal;
+    border-radius: @brd;
+    //border: 1px solid @base-border-color;
   color: lighten(@text-color, 6%);
   background-color: @button-background-color;
+  &.status-indicator {
+      height: 28px;
+  }
   &:hover,
   &:focus {
     color: @text-color-highlight;
@@ -37,7 +49,7 @@
 .btn.btn-error   { .btn-color(@background-color-error); }
 
 .btn-color(@bg) {
-  color: @text-color-selected;
+  color: @base-background-color;
   background-color: @bg;
   &:hover,
   &:focus {
@@ -55,9 +67,29 @@
   }
 }
 
+.settings-view .packages .search-container .btn-group {
+    padding-left: 0 !important;
+}
 
 // Button Group -----------------------
 
+.settings-view .themes-picker-item .btn {
+    margin-left: 5px;
+}
+
+select.form-control {
+    //border-radius: 20px !important;
+    border-radius: @brd;
+    overflow: hidden;
+}
+
+.btn-group {
+    border-radius: @brd;
+    overflow: hidden;
+    //border: 1px solid @base-border-color;
+}
+
 .btn-group > .btn {
   border-color: hsla(0,0%,0%,.2);
+  //border-left-color: @base-border-color;
 }
